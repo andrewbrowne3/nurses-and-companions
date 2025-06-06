@@ -68,10 +68,10 @@ const Contact = () => {
               
               <div className="mb-4">
                 <h5 className="fw-bold mb-3">Office Hours</h5>
-                <p className="mb-1">Monday - Friday: 8:00 AM - 6:00 PM</p>
-                <p className="mb-1">Saturday: 9:00 AM - 2:00 PM</p>
-                <p className="mb-1">Sunday: Closed</p>
-                <p className="text-muted">24/7 phone support available for existing clients</p>
+                <p className="mb-1">Monday - Friday: 8:30 AM - 5:00 PM</p>
+                <p className="mb-1">Saturday: Closed but always avaliable by phone!</p>
+                <p className="mb-1">Sunday: Closed but always avaliable by phone!</p>
+                <p className="text-muted">24/7 phone support </p>
               </div>
 
               <div className="mb-4">
@@ -83,7 +83,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <h6 className="fw-bold mb-1">Address</h6>
-                      <p className="mb-0">123 Healthcare Ave, Medical City, CA 90210</p>
+                      <p className="mb-0">3545 Cruse Rd Suite 100 Lawrenceville, Ga 30044</p>
                     </div>
                   </Card.Body>
                 </Card>
@@ -95,7 +95,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <h6 className="fw-bold mb-1">Phone</h6>
-                      <p className="mb-0">(555) 123-4567</p>
+                      <p className="mb-0">(770) 897 6569</p>
                     </div>
                   </Card.Body>
                 </Card>
@@ -107,7 +107,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <h6 className="fw-bold mb-1">Email</h6>
-                      <p className="mb-0">info@nursesandcompanions.com</p>
+                      <p className="mb-0">administrator@atlanta-staffing.org</p>
                     </div>
                   </Card.Body>
                 </Card>
@@ -119,12 +119,7 @@ const Contact = () => {
                   <a href="https://facebook.com" className="me-3 text-dark fs-4" aria-label="Facebook">
                     <i className="fab fa-facebook-f"></i>
                   </a>
-                  <a href="https://twitter.com" className="me-3 text-dark fs-4" aria-label="Twitter">
-                    <i className="fab fa-twitter"></i>
-                  </a>
-                  <a href="https://linkedin.com" className="me-3 text-dark fs-4" aria-label="LinkedIn">
-                    <i className="fab fa-linkedin-in"></i>
-                  </a>
+             
                   <a href="https://instagram.com" className="text-dark fs-4" aria-label="Instagram">
                     <i className="fab fa-instagram"></i>
                   </a>
@@ -267,17 +262,17 @@ const Contact = () => {
             </Row>
             <Row>
               <Col>
-                <div className="shadow-sm">
-                  {/* In a real application, you would include a Google Maps iframe or a map component */}
-                  <div className="ratio ratio-21x9 bg-secondary">
-                    <div className="d-flex align-items-center justify-content-center text-white">
-                      <div className="text-center">
-                        <i className="fas fa-map-marked-alt fa-3x mb-3"></i>
-                        <h5>Map would be displayed here</h5>
-                        <p className="mb-0">123 Healthcare Ave, Medical City, CA 90210</p>
-                      </div>
-                    </div>
-                  </div>
+                <div className="shadow-sm rounded overflow-hidden">
+                  <iframe
+                    src="https://maps.google.com/maps?q=3545+Cruse+Rd+Suite+100+Lawrenceville+GA+30044&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                    width="100%"
+                    height="400"
+                    style={{ border: 0 }}
+                    allowFullScreen=""
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Nurses & Companions Office Location - 3545 Cruse Rd Suite 100 Lawrenceville GA 30044"
+                  ></iframe>
                 </div>
               </Col>
             </Row>

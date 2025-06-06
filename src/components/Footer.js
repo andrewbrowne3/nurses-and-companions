@@ -24,9 +24,9 @@ const Footer = () => {
           <Col md={4}>
             <h5 className="mb-4">Contact Information</h5>
             <ul className="list-unstyled">
-              <li className="mb-2"><i className="fas fa-map-marker-alt me-2"></i>123 Healthcare Ave, Medical City, CA 90210</li>
-              <li className="mb-2"><i className="fas fa-phone me-2"></i>(555) 123-4567</li>
-              <li className="mb-2"><i className="fas fa-envelope me-2"></i>info@nursesandcompanions.com</li>
+              <li className="mb-2"><i className="fas fa-map-marker-alt me-2"></i>3545 Cruse Rd Suite 100 Lawrenceville, Ga 30044</li>
+              <li className="mb-2"><i className="fas fa-phone me-2"></i>(770) 897 6569</li>
+              <li className="mb-2"><i className="fas fa-envelope me-2"></i>administrator@atlanta-staffing.org</li>
             </ul>
             <div className="mt-3">
               <a href="https://facebook.com" className="text-light me-3" aria-label="Facebook"><i className="fab fa-facebook-f"></i></a>

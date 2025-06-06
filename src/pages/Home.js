@@ -1,49 +1,108 @@
-import React from 'react';
-import { Container, Row, Col, Button, Card } from 'react-bootstrap';
+import React, { useState, useEffect } from 'react';
+import { Container, Row, Col, Button, Card, Carousel } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import '../styles/Home.css'; // We'll create this CSS file for custom styles
+import ChatWidget from '../components/ChatWidget';
+import ImagePreloader from '../components/ImagePreloader';
 
 const Home = () => {
+  // Image carousel state and effect
+  const [index, setIndex] = useState(0);
+  
+  const handleSelect = (selectedIndex) => {
+    setIndex(selectedIndex);
+  };
+  
+  // Service images for the carousel
+  const carouselImages = [
+    { 
+      src: '/assets/img/service1.jpg',
+      title: 'IN HOME SERVICES',
+      subtitle: '24/7 Professional Care'
+    },
+    { 
+      src: '/assets/img/service2.jpg',
+      title: 'PERSONAL CARE',
+      subtitle: 'Compassionate Support'
+    },
+    { 
+      src: '/assets/img/service3.jpg',
+      title: 'NURSING SERVICES',
+      subtitle: 'Expert Medical Assistance'
+    },
+    { 
+      src: '/assets/img/service6.jpg',
+      title: 'HOME CARE SERVICES',
+      subtitle: 'Dedicated to Your Wellbeing'
+    }
+  ];
+
   // Sample testimonials data
   const testimonials = [
     {
       id: 1,
       name: 'Jennifer Smith',
       role: 'Client',
-      image: 'https://randomuser.me/api/portraits/women/32.jpg',
+      image: '/assets/img/client2.png',
       testimonial: 'The nurses from Nurses & Companions have been incredible. They provided my mother with exceptional care during her recovery. Their professionalism and compassion made all the difference.'
     },
     {
       id: 2,
       name: 'Robert Johnson',
-      role: 'Family Member',
-      image: 'https://randomuser.me/api/portraits/men/41.jpg',
+      role: 'Client',
+      image: '/assets/img/client1.png',
       testimonial: 'We are extremely grateful for the attentive care provided to my father. The nursing assistants were not only skilled but also brought joy and comfort to his daily routine.'
     },
     {
       id: 3,
       name: 'Maria Rodriguez',
       role: 'Client',
-      image: 'https://randomuser.me/api/portraits/women/63.jpg',
+      image: '/assets/img/client3.jpeg',
       testimonial: 'After my surgery, I needed professional care at home. Nurses & Companions exceeded my expectations with their dedicated service and attention to detail.'
     }
   ];
 
   return (
     <>
-      {/* Hero Section */}
-      <section className="hero-section">
-        <Container>
-          <Row>
-            <Col lg={8} md={10}>
-              <h1 className="display-4 fw-bold mb-4">Professional & Compassionate Nursing Care</h1>
-              <p className="lead mb-4">Providing exceptional nursing assistant services in the comfort of your home. Our team of qualified professionals is dedicated to your health and well-being.</p>
-              <div className="d-flex gap-3">
+      <ImagePreloader images={carouselImages.map(image => image.src)} />
+      <ImagePreloader images={testimonials.map(testimonial => testimonial.image)} />
+      {/* Hero Section with Carousel */}
+      <section className="hero-carousel-section">
+        <Carousel 
+          activeIndex={index} 
+          onSelect={handleSelect}
+          fade
+          interval={3000}
+          className="hero-carousel"
+          pause={false}
+        >
+          {carouselImages.map((image, idx) => (
+            <Carousel.Item key={idx} className="hero-carousel-item">
+              <div className="carousel-img-container">
+                <img
+                  src={image.src}
+                  alt={image.title}
+                  className="carousel-image d-block"
+                />
+                <div className="carousel-overlay">
+                  <Container className="h-100">
+                    <Row className="h-100 align-items-center">
+                      <Col lg={8} md={10} xs={12} className="text-white text-center text-md-start">
+                        <h1 className="display-4 fw-bold mb-3">{image.title}</h1>
+                        <p className="lead mb-4">{image.subtitle}</p>
+                        <h2 className="mb-4">Professional & Compassionate Nursing Care</h2>
+                        <div className="d-flex gap-3 flex-column flex-md-row justify-content-center justify-content-md-start">
                 <Button as={Link} to="/services" variant="light" size="lg">Our Services</Button>
                 <Button as={Link} to="/contact" variant="outline-light" size="lg">Contact Us</Button>
               </div>
             </Col>
           </Row>
         </Container>
+                </div>
+              </div>
+            </Carousel.Item>
+          ))}
+        </Carousel>
       </section>
 
       {/* Services Overview Section */}
@@ -166,12 +225,21 @@ const Home = () => {
           <Row>
             {testimonials.map(testimonial => (
               <Col md={4} key={testimonial.id} className="mb-4">
-                <div className="testimonial-card">
-                  <img src={testimonial.image} alt={testimonial.name} className="mx-auto d-block" />
-                  <h5 className="fw-bold text-center mb-1">{testimonial.name}</h5>
-                  <p className="text-muted text-center mb-3">{testimonial.role}</p>
-                  <p className="mb-0">"{testimonial.testimonial}"</p>
-                </div>
+                <Card className="border-0 shadow-sm h-100">
+                  <Card.Body className="text-center p-4">
+                    <div style={{ width: '120px', height: '120px', overflow: 'hidden' }} className="mx-auto mb-3">
+                      <img 
+                        src={testimonial.image} 
+                        alt={testimonial.name} 
+                        className="w-100 h-100 rounded-circle"
+                        style={{ objectFit: 'cover' }}
+                      />
+                    </div>
+                    <h5 className="fw-bold text-center mb-1">{testimonial.name}</h5>
+                    <p className="text-muted text-center mb-3">{testimonial.role}</p>
+                    <Card.Text className="mb-0">"{testimonial.testimonial}"</Card.Text>
+                  </Card.Body>
+                </Card>
               </Col>
             ))}
           </Row>
@@ -192,6 +260,9 @@ const Home = () => {
           </Row>
         </Container>
       </section>
+
+      {/* Chat Widget */}
+      <ChatWidget />
     </>
   );
 };

@@ -32,21 +32,7 @@ const Services = () => {
       icon: 'fas fa-hands-helping',
       description: 'Meaningful social interaction and emotional support.',
       details: 'Beyond physical care, we provide conversation, companionship, and recreational activities that enhance mental and emotional well-being, combating loneliness and isolation.'
-    },
-    {
-      id: 5,
-      title: 'Specialized Care',
-      icon: 'fas fa-procedures',
-      description: 'Focused care for specific health conditions.',
-      details: 'We offer specialized care for clients with dementia, Parkinson\'s disease, post-surgery recovery, and other specific health needs, with nursing assistants trained in these specialized areas.'
-    },
-    {
-      id: 6,
-      title: 'Respite Care',
-      icon: 'fas fa-house-user',
-      description: 'Temporary relief for family caregivers.',
-      details: 'We provide skilled, temporary care that allows family caregivers to take necessary breaks, attend to personal matters, or simply rest and recharge while knowing their loved one is in capable hands.'
-    }
+    }  
   ];
 
   // FAQs data
@@ -103,7 +89,7 @@ const Services = () => {
           </Row>
           <Row>
             {services.map(service => (
-              <Col md={6} lg={4} key={service.id} className="mb-4">
+              <Col md={6} lg={3} key={service.id} className="mb-4">
                 <Card className="h-100 shadow-sm border-0 service-card">
                   <Card.Body className="p-4">
                     <div className="mb-4 text-center">
